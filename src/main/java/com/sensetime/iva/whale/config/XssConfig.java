@@ -52,6 +52,7 @@ public class XssConfig implements WebMvcConfigurer {
      * @return
      */
     @Bean
+    @ConditionalOnMissingBean
     public XssRequestControllerAdvice xssRequestControllerAdvice(XssCleaner xssCleaner) {
         return new XssRequestControllerAdvice(xssCleaner);
     }
