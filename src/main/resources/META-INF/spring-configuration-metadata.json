@@ -1,0 +1,31 @@
+{
+  "groups": [
+    {
+      "name": "whale.xss",
+      "type": "com.sensetime.iva.whale.config.XssProperties",
+      "sourceType": "com.sensetime.iva.whale.config.XssProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "whale.xss.enabled",
+      "type": "java.lang.Boolean",
+      "description": "开启xss",
+      "sourceType": "com.sensetime.iva.whale.config.XssProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "whale.xss.exclude-patterns",
+      "type": "java.util.List<java.lang.String>",
+      "description": "放行的规则，默认为空",
+      "sourceType": "com.sensetime.iva.whale.config.XssProperties"
+    },
+    {
+      "name": "whale.xss.path-patterns",
+      "type": "java.util.List<java.lang.String>",
+      "description": "拦截的路由，默认为空",
+      "sourceType": "com.sensetime.iva.whale.config.XssProperties"
+    }
+  ],
+  "hints": []
+}
