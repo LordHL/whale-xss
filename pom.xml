@@ -73,17 +73,10 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${apache.common.io.version}</version>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
     </dependencies>
     <distributionManagement>
