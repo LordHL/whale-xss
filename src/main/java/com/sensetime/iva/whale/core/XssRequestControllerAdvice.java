@@ -1,6 +1,8 @@
 package com.sensetime.iva.whale.core;
 
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpInputMessage;
@@ -21,6 +23,7 @@ import java.lang.reflect.Type;
  */
 @RestControllerAdvice
 public class XssRequestControllerAdvice implements RequestBodyAdvice {
+    private static final Logger log = LoggerFactory.getLogger(XssRequestControllerAdvice.class);
     private final XssCleaner xssCleaner;
 
     public XssRequestControllerAdvice(XssCleaner xssCleaner){
@@ -37,6 +40,7 @@ public class XssRequestControllerAdvice implements RequestBodyAdvice {
             @Override
             public InputStream getBody() throws IOException {
                 String bodyStr = IOUtils.toString(inputMessage.getBody(),"utf-8");
+                log.info("data before xss not processed：{}",bodyStr);
                 if (StringUtils.hasText(bodyStr) && XssHolder.isEnabled()) {
                     bodyStr = xssCleaner.clean(bodyStr);
                 }
