@@ -41,16 +41,27 @@ public class XssConfig implements WebMvcConfigurer {
      * fastjson 作为消息转换器序列化时 使用 XssRequestControllerAdvice 处理xss攻击
      * @return
      */
-    @Bean
-    @ConditionalOnMissingBean
+//    @Bean
+//    @ConditionalOnMissingBean
     public XssRequestControllerAdvice xssRequestControllerAdvice(XssCleaner xssCleaner) {
         return new XssRequestControllerAdvice(xssCleaner);
     }
 
-    @Bean
-    @ConditionalOnMissingBean
+    /**
+     * 处理 requestParam请求参数
+     * @param xssCleaner
+     * @return
+     */
+//    @Bean
+//    @ConditionalOnMissingBean
     public FormXssClean formXssClean(XssCleaner xssCleaner) {
         return new FormXssClean(xssCleaner);
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public XssZuulFilter xssZuulFilter(XssCleaner xssCleaner,XssProperties xssProperties){
+        return new XssZuulFilter(xssCleaner,xssProperties);
     }
 
 //    @Bean

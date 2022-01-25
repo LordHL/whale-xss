@@ -18,7 +18,7 @@
 配置项 | 默认值 | 说明   
 whale.xss.enabled | true | 开启xss
 whale.xss.path-patterns | /**   | 拦截的路由，例如: /api/**
-whale.xss.path-exclude-patterns |   | 放行的路由，默认为空
+whale.xss.exclude-patterns |   | 放行的路由，默认为空
 
 **注解**
 
